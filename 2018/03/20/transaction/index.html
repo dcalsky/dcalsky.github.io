@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>浅谈事务隔离级别 | 白玉为堂金为马</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">浅谈事务隔离级别</h1><a id="logo" href="/.">白玉为堂金为马</a><p class="description">70%有趣的灵魂</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">浅谈事务隔离级别</h1><div class="post-meta">Mar 20, 2018<span> | </span><span class="category"><a href="/categories/技术/">技术</a></span></div><div class="post-content"><p>学数据库的时候，老师就叫我们背事务隔离级别的概念，默写出相应可能会出现的问题。那么究竟在哪些场景下会因为隔离级别的不同而出现这些问题呢。</p>
+<a id="more"></a>
+<h2 id="事务隔离性"><a href="#事务隔离性" class="headerlink" title="事务隔离性"></a>事务隔离性</h2><p>事务的ACID大家自然都背得很熟了，那么隔离性就是定义了数据库系统中一个操作的结果在何时以何种方式对其他并发操作可见。也就是说，数据库多个事务在不同情况下，是区别<strong>并发执行</strong>与<strong>串行执行</strong>的。正因为如此数据库设置了锁的概念，来确保并发控制机制能够有效运行下去。</p>
+<p>所以谈论到的<strong>隔离级别</strong>，通常也与锁设置方式以及锁类型有关。</p>
+<h2 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h2><p>为了获取更高的隔离性，数据库系统的锁机制或者多版本并发控制机制都会影响并发。很多数据库定义了不同的<strong>事务隔离级别</strong>来控制其锁的程度。根据标准定义，我们都知道有：未提交读 read uncommited, 提交读 read commited, 可重复读 repeatable read, 可串行化 Serializable。</p>
+<p>虽然中文很拗口，但是这些隔离级别的名字其实是<strong>解决上一个隔离级别所出现问题而提出的解决方案</strong>（除了 read uncommited）。</p>
+<p>他们的区别之一在于锁对于R/W事务上设置的不同，当然最高隔离级别也存在对表锁的设置。</p>
+<ul>
+<li>read uncommited: 不对读事务设置锁；对写事务设置<strong>行级共享锁</strong></li>
+<li>read commited: 对读事务设置<strong>行级共享锁，读完就释放</strong>；对写事务设置<strong>行级互斥锁，直到事务结束才释放</strong></li>
+<li>repeatable read: 对读事务设置<strong>行级共享锁，直到事务结束才释放</strong>；对写事务设置<strong>行级互斥锁，直到事务结束才释放</strong></li>
+<li>Serializable: 所有事务串行执行，读事务设置<strong>表级共享锁</strong>；写事务设置<strong>表级互斥锁</strong></li>
+</ul>
+<p>可以看出来，隔离级别的提高，其实也是锁的严格程度的提高。要知道，相同条件下，锁越多，越严格那么性能也就越低。</p>
+<p>除了脏读以外，其他因为隔离级别导致的问题，<strong>都会出现在当前隔离级别与比当前隔离级别要弱的隔离级别中</strong>。</p>
+<p>共享锁：多个事务对于加了锁的数据，只能读，不能写；<br>互斥锁：排他锁允许当前事物删除或更新一行记录，其他事务不能操作该数据。</p>
+<h3 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h3><p>只会出现在read uncommited隔离级别的问题，因为read uncommited不对读事务设置锁，并且对写事务只设置<strong>行级共享锁</strong>。</p>
+<p>示意图如下:</p>
+<p>-T1–T2–R1–W1–R2–T2–T1-</p>
+<p>T2事务全程发生在T1事务的进行时，因为没有对记录设置行级互斥锁，所以在W1写操作进行前后，可以随时读取该记录，导致了R1和R2读到的不一样。非常危险，这就是脏读。</p>
+<h3 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h3><p>因为读事务在读完一条数据以后(没有结束事务)，就立马释放了行级共享锁，归根结底，就是这一原因导致了不可重复读的发生。</p>
+<p>-T1–R1–T2–W1–T2–R2-</p>
+<p>R1读完就释放了锁，但是T1事务未结束，这时候另外一个T2事务开始了，在T2事务结束前，第一个事务都不能对这条记录进行加锁了(想想为什么)，所以R2要在T2结束后进行。这时候R2读到的数据与R1又不一样了。这就是不可重复读。</p>
+<h3 id="幻读"><a href="#幻读" class="headerlink" title="幻读"></a>幻读</h3><p>我们都针对<strong>某一记录</strong>读操作与写操作添加锁，并且保证了事务结束时才释放锁了。这是还会有问题吗？</p>
+<p>我们一直只针对某一条记录来进行操作，这时候要是表内又新来了一条数据呢，它可不受任何读写锁的约定呀。</p>
+<p>示意图:</p>
+<p>-T1–R1–T2–C–T2–R2–T1-</p>
+<p><em>R1、R2在这里表示了读整个表的操作</em>，C代表了在T2事务期间，新增的一条记录，你会发现在事务T1内的两次读（R1，R2），得到的数据不一样。</p>
+<p>因为R1只对原有的N条记录加了锁，而没对新增的记录加锁，这就导致T2事务可以与T1事务并发执行，最终导致了R2与R1读到的记录不一致。</p>
+<p>所以我们可以提高事务隔离级别来防止这种情况出现，但是在也就是意味着，事务之间也无并发执行可言了。</p>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2018/03/20/photography/">爱江山，爱摄影</a><a class="next" href="/2018/03/19/blog/">静态博客迁移评估</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/摄影/">摄影</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.zhihu.com/people/dcalsky" title="知乎" target="_blank">知乎</a><ul></ul><a href="https://github.com/dcalsky" title="Github" target="_blank">Github</a><ul></ul><a href="mailto:dcalsky@gmail.com" title="电子邮箱" target="_blank">电子邮箱</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">白玉为堂金为马.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.1"></script></div></body></html>
