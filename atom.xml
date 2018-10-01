@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.noddl.me/"/>
-  <updated>2018-09-20T14:33:10.169Z</updated>
+  <updated>2018-10-01T03:34:09.567Z</updated>
   <id>http://www.noddl.me/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>页面无法访问 I tell you</title>
+    <link href="http://www.noddl.me/2018/10/01/internal-server-error/"/>
+    <id>http://www.noddl.me/2018/10/01/internal-server-error/</id>
+    <published>2018-10-01T03:23:23.078Z</published>
+    <updated>2018-10-01T03:34:09.567Z</updated>
+    
+    <content type="html"><![CDATA[<p>Web开发，无论是本地调试开发还是最终部署上线，都可能遇到页面无法访问的情况。最快速的方法肯定是请个老法师帮忙把把关，其次都是靠自己总结的经验了…</p><a id="more"></a><h1 id="404-Checklist"><a href="#404-Checklist" class="headerlink" title="404 Checklist"></a>404 Checklist</h1><ul><li>Static files没放在目录里，或者路径出错。</li><li>Web server未能成功代理Staticfiles，可能是代码写错了，或者是它压根没找到。</li><li>Url填错了</li></ul><h1 id="404之外的Checklist"><a href="#404之外的Checklist" class="headerlink" title="404之外的Checklist"></a>404之外的Checklist</h1><ul><li>端口号与hostname</li><li>端口安全组设置</li><li>针对特定端口防火墙放行</li><li>查看Web server的log，检查报错信息</li><li>远程主机在国外，是不是网络连接问题</li><li>DNS设置正确且解析完毕</li><li>Ping hostname能成功吗？不成功就是网络连接问题</li><li>查看Web application接受的request以及报错信息</li><li>生产环境下，Web server是否监听的是0.0.0.0下的端口</li><li>Https证书获取与解析是否遇到了麻烦</li><li>Web server(Nginx、Apache)配置正确了吗</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Web开发，无论是本地调试开发还是最终部署上线，都可能遇到页面无法访问的情况。最快速的方法肯定是请个老法师帮忙把把关，其次都是靠自己总结的经验了…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="http://www.noddl.me/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>为什么知道那么多道理依然过得不好</title>
@@ -203,26 +223,6 @@
   </entry>
   
   <entry>
-    <title>接offer这件事</title>
-    <link href="http://www.noddl.me/2018/05/06/offer-gf/"/>
-    <id>http://www.noddl.me/2018/05/06/offer-gf/</id>
-    <published>2018-05-05T16:27:15.618Z</published>
-    <updated>2018-09-20T14:38:24.309Z</updated>
-    
-    <content type="html"><![CDATA[<p>  前几天今天跟好朋友又一次不可避免地讨论起她的对象。她的对象很神秘，我也很是佩服她的耐心。因为她的对象已经很久很久没有出现了。<br><a id="more"></a></p><p>我的朋友，说她没有对象，这是不完全不能被认同的，她毕竟是身为一个如此优秀的女孩子。所以与其说她很久没有谈恋爱了，不如说她是完全不想去找。所以我俩话题的风向标，总是从一声“唉”的感慨开始，慢慢转向情感话题。从最初坚定的单身贵族主义，到如今各种为对方儿子取名，可见对方近些年，各个牌子的狗粮也都尝了个遍。虽然都是无意义地瞎扯，比如讨论一下各个牌子狗粮的口感，但是好歹也是有话题的。</p><p>回到话题尚未跑偏的那会儿。毕业季，我和她都开始忙着找工作单位实习、一旦涉及到资本主义，就会提起钱；一提钱，双方就会因为钱而签约。而offer就是“签约”的儿子，但“签约”只负责生，不负责养。那自然的，接offer的我们就成了最苦逼的保姆。这种吃力不讨好的事情，却人人都挤破头地喜欢。接了offer，好似万年单身狗，突然有了一个愿意跟你处下去的姑娘。虽然日子可能不会太长，但是好歹不再依靠吃狗粮为继了。而且接offer这件事本身，就和谈恋爱也有很多相同点。</p><p>为什么我坚持不用社交软件（知乎算不算），因为我总是感到，如果一个人想要脱单就去用社交软件，就好像：在你毕业之际走投无路之时，突然发现自己还有母校这种靠山存在（平时翘课的时候永远也想不起）。于是你抱紧了学校的大腿，想让学校给你安排一份实习。学校当然愿意啊，不然芸芸学子打着母校的英名在外好吃懒做传出去多不好看。你也不在乎实习单位的好差了，只要有一根稻草能抓住就已是万幸。社交软件就像学校一样，当然很容易就能帮助我们安排一段良好的因缘，毕竟它一次塞上百个姑娘给你“任君自由选择”。</p><p>这样的统筹安排，在缘分论者的观念中是不可饶恕的。所以自然，多数人选择到社会中“广撒网”。临近毕业，诸如以老学长的身份多参加一下社团活动、学生会的哥们推荐一下、退伍的兵哥哥帮忙在军训的时候物色一下新来妹子之类的老渔夫本领，不下海当然是学不会的。不过宅在家里的二次元渔夫，也是完全不屑这种现充行为的。说回接offer，既然广撒网这种行为是有客观原因的，那么各种投简历收offer，也自然无可厚非了。BAT走一走，FLAG遛一遛，一圈下来再去小厂装一波，自然收获颇丰。也正是应了杨同学那句话：“如果爱情要有收offer这么简单，那就好了”</p><p>老渔夫表示想要一条前凸后翘金龙鱼的心情，就像一名应届生想要收到一份工资高加班少offer的心情一样迫切。然而金龙鱼不常有，现实里渔网里大多都是黝黑的鲶鱼。很多企业也喜欢吊着应届生，面试周期极长无比，仿佛你向金龙鱼表白的时候，她却对你说：“我有一段很长的考察期，时不时会派出我的前男友们来刁难你，用以考验你对我的爱”。这个过程短则一两月，长则半年有余。在这期间，她前男友们的百般刁难让你抓破了头，而金龙鱼的肥美又让你日夜好逑。当然，最难受的是，网里已经捕获的鲶鱼还在上下乱窜，时不时提醒一下你是不是该考虑一下它们了。往往几日之后，鲶鱼便会纷纷坦言，如果你一周之内再不有所表示，那么它们就会离开。</p><p>于是你仔细一想，发现事情并不简单。如果鲶鱼们都走了，而金龙鱼又没有钓到，那么自己不久以后又将回到曾经吃狗粮度日的黑暗生活。口腔里还弥漫的狗粮味窜到了脑门，大脑开始大吼，并警告你是时候该做出选择了。你是要吃前凸后翘未到手的金龙鱼，还是在眼下这些鲶鱼挑一只过日子。</p><p>长辈通常会跟我们说，爱情这个东西，只有更好的没有最好的。我们选择了一个，总会有更优秀的目标摆在我们面前。可是我们年轻人其实也总是会选择抛开这些教诲，并给了长辈一头槌，在追求理想中金龙鱼的道路上越走越远，顿顿狗粮也在所不惜。因为啊，在这个过程中，我们已经让自己变成了一个更加优秀的人。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;  前几天今天跟好朋友又一次不可避免地讨论起她的对象。她的对象很神秘，我也很是佩服她的耐心。因为她的对象已经很久很久没有出现了。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="杂谈" scheme="http://www.noddl.me/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>左左的2018暑期实习面试经历</title>
     <link href="http://www.noddl.me/2018/05/06/interview/"/>
     <id>http://www.noddl.me/2018/05/06/interview/</id>
@@ -265,6 +265,26 @@
   </entry>
   
   <entry>
+    <title>接offer这件事</title>
+    <link href="http://www.noddl.me/2018/05/06/offer-gf/"/>
+    <id>http://www.noddl.me/2018/05/06/offer-gf/</id>
+    <published>2018-05-05T16:27:15.618Z</published>
+    <updated>2018-09-20T14:38:24.309Z</updated>
+    
+    <content type="html"><![CDATA[<p>  前几天今天跟好朋友又一次不可避免地讨论起她的对象。她的对象很神秘，我也很是佩服她的耐心。因为她的对象已经很久很久没有出现了。<br><a id="more"></a></p><p>我的朋友，说她没有对象，这是不完全不能被认同的，她毕竟是身为一个如此优秀的女孩子。所以与其说她很久没有谈恋爱了，不如说她是完全不想去找。所以我俩话题的风向标，总是从一声“唉”的感慨开始，慢慢转向情感话题。从最初坚定的单身贵族主义，到如今各种为对方儿子取名，可见对方近些年，各个牌子的狗粮也都尝了个遍。虽然都是无意义地瞎扯，比如讨论一下各个牌子狗粮的口感，但是好歹也是有话题的。</p><p>回到话题尚未跑偏的那会儿。毕业季，我和她都开始忙着找工作单位实习、一旦涉及到资本主义，就会提起钱；一提钱，双方就会因为钱而签约。而offer就是“签约”的儿子，但“签约”只负责生，不负责养。那自然的，接offer的我们就成了最苦逼的保姆。这种吃力不讨好的事情，却人人都挤破头地喜欢。接了offer，好似万年单身狗，突然有了一个愿意跟你处下去的姑娘。虽然日子可能不会太长，但是好歹不再依靠吃狗粮为继了。而且接offer这件事本身，就和谈恋爱也有很多相同点。</p><p>为什么我坚持不用社交软件（知乎算不算），因为我总是感到，如果一个人想要脱单就去用社交软件，就好像：在你毕业之际走投无路之时，突然发现自己还有母校这种靠山存在（平时翘课的时候永远也想不起）。于是你抱紧了学校的大腿，想让学校给你安排一份实习。学校当然愿意啊，不然芸芸学子打着母校的英名在外好吃懒做传出去多不好看。你也不在乎实习单位的好差了，只要有一根稻草能抓住就已是万幸。社交软件就像学校一样，当然很容易就能帮助我们安排一段良好的因缘，毕竟它一次塞上百个姑娘给你“任君自由选择”。</p><p>这样的统筹安排，在缘分论者的观念中是不可饶恕的。所以自然，多数人选择到社会中“广撒网”。临近毕业，诸如以老学长的身份多参加一下社团活动、学生会的哥们推荐一下、退伍的兵哥哥帮忙在军训的时候物色一下新来妹子之类的老渔夫本领，不下海当然是学不会的。不过宅在家里的二次元渔夫，也是完全不屑这种现充行为的。说回接offer，既然广撒网这种行为是有客观原因的，那么各种投简历收offer，也自然无可厚非了。BAT走一走，FLAG遛一遛，一圈下来再去小厂装一波，自然收获颇丰。也正是应了杨同学那句话：“如果爱情要有收offer这么简单，那就好了”</p><p>老渔夫表示想要一条前凸后翘金龙鱼的心情，就像一名应届生想要收到一份工资高加班少offer的心情一样迫切。然而金龙鱼不常有，现实里渔网里大多都是黝黑的鲶鱼。很多企业也喜欢吊着应届生，面试周期极长无比，仿佛你向金龙鱼表白的时候，她却对你说：“我有一段很长的考察期，时不时会派出我的前男友们来刁难你，用以考验你对我的爱”。这个过程短则一两月，长则半年有余。在这期间，她前男友们的百般刁难让你抓破了头，而金龙鱼的肥美又让你日夜好逑。当然，最难受的是，网里已经捕获的鲶鱼还在上下乱窜，时不时提醒一下你是不是该考虑一下它们了。往往几日之后，鲶鱼便会纷纷坦言，如果你一周之内再不有所表示，那么它们就会离开。</p><p>于是你仔细一想，发现事情并不简单。如果鲶鱼们都走了，而金龙鱼又没有钓到，那么自己不久以后又将回到曾经吃狗粮度日的黑暗生活。口腔里还弥漫的狗粮味窜到了脑门，大脑开始大吼，并警告你是时候该做出选择了。你是要吃前凸后翘未到手的金龙鱼，还是在眼下这些鲶鱼挑一只过日子。</p><p>长辈通常会跟我们说，爱情这个东西，只有更好的没有最好的。我们选择了一个，总会有更优秀的目标摆在我们面前。可是我们年轻人其实也总是会选择抛开这些教诲，并给了长辈一头槌，在追求理想中金龙鱼的道路上越走越远，顿顿狗粮也在所不惜。因为啊，在这个过程中，我们已经让自己变成了一个更加优秀的人。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;  前几天今天跟好朋友又一次不可避免地讨论起她的对象。她的对象很神秘，我也很是佩服她的耐心。因为她的对象已经很久很久没有出现了。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="杂谈" scheme="http://www.noddl.me/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>HTTP2特性漫谈</title>
     <link href="http://www.noddl.me/2018/05/06/http2/"/>
     <id>http://www.noddl.me/2018/05/06/http2/</id>
@@ -276,26 +296,6 @@
     <summary type="html">
     
       &lt;p&gt;在2018年春招中，没有回答出HTTP2新特性的具体细节，甚是懊恼。看来不能仅仅因为兼容性的问题，就不顾HTTP2这票潜力股😈。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="http://www.noddl.me/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>静态博客迁移评估</title>
-    <link href="http://www.noddl.me/2018/05/06/blog/"/>
-    <id>http://www.noddl.me/2018/05/06/blog/</id>
-    <published>2018-05-05T16:27:15.616Z</published>
-    <updated>2018-05-05T16:27:15.616Z</updated>
-    
-    <content type="html"><![CDATA[<p>一开始我所有的站点都部署在Vultr提供的日本VPS下，包括本博客。后来遭不过当初首充的200刀所剩无多，以及遇到奇奇怪怪丢包的网络问题。终于开始了漫漫迁移之路。</p><a id="more"></a><h2 id="第一阶段-自建"><a href="#第一阶段-自建" class="headerlink" title="第一阶段 - 自建"></a>第一阶段 - 自建</h2><p>在VPS下使用了nginx作为web server，无论是在静态资源提供上还是承载力上(其实根本没多少PV)，都表现良好。将静态文件全部推送到Github后，再通知VPS上跑的<a href="http://www.noddl.me/2017/02/21/fish_hook/">fish-hook</a>，及时地把最新内容给拉下来。能够做到热更新，以及一键化操作。</p><p>无奈，遇到了网络问题。于是放弃了这条看似完美的解决方案。😭</p><h2 id="第二阶段-X-page"><a href="#第二阶段-X-page" class="headerlink" title="第二阶段 - X page"></a>第二阶段 - X page</h2><p>作为仓库托管商们，Github、Coding和Bitbucket还提供了Repo pages的优秀服务。每个Repo或Account都能创建属于自己的静态页面，还能享受托管商赠送的二级域名。</p><p><strong>2018年3月19日</strong>，三个服务商提供的服务，我在一晚上全部都试过了，从访问速度、域名绑定、上手难度三个情况进行评估，如下表：</p><table><thead><tr><th>服务商</th><th>访问速度</th><th>域名绑定</th><th>上手难度</th></tr></thead><tbody><tr><td>Github</td><td>慢(大陆部分地区网络无法连接)</td><td>✅</td><td>低</td></tr><tr><td>Coding</td><td>中</td><td>✅</td><td>中</td></tr><tr><td>Bitbucket</td><td>快</td><td>❌</td><td>低</td></tr></tbody></table><ul><li>Github page: 大陆访问较慢经常失败，且部分地区网络压根无法访问。但<strong>提供顶级自定义域名绑定</strong></li><li>Coding page: 访问不流畅，但是不存在失败情况。<strong>提供顶级自定义域名绑定</strong></li><li>Bitbucket page: 海内外访问都极快，但<strong>不提供自定义域名绑定</strong></li></ul><h2 id="其他建议"><a href="#其他建议" class="headerlink" title="其他建议"></a>其他建议</h2><p>除了上述两种就没有别的选择了吗？当然不是，Heroku、Wordpress、Ghost都提供了免费或收费的服务。还有一些国内的服务商，就不一一列举了。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>综上看起来似乎Bitbucket会更好，但是我有一个noddl.me的域名，我可不想浪费它。但是不能绑定自定义域名这一个特点让我无比痛心💔。</p><p>当然了，不排除可能会存在奇技淫巧，让Bitbucket支持自定义域名。隐式跳转是行不通的，因为国内的DNS服务商目前应该都<strong>不支持将域名隐式跳转到未备案的域名</strong>上。</p><p>后来一想，要不直接转战知乎吧？但是一想到知乎的编辑器，又马上放弃了这个念头🤣。</p><p>最终选择了Github，因为我毕竟还是一个热爱填格子的少年。</p><p>最后欢迎访问我的博客: <a href="http://www.noddl.me">http://www.noddl.me</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一开始我所有的站点都部署在Vultr提供的日本VPS下，包括本博客。后来遭不过当初首充的200刀所剩无多，以及遇到奇奇怪怪丢包的网络问题。终于开始了漫漫迁移之路。&lt;/p&gt;
     
     </summary>
     
@@ -320,6 +320,26 @@
     </summary>
     
       <category term="杂谈" scheme="http://www.noddl.me/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>静态博客迁移评估</title>
+    <link href="http://www.noddl.me/2018/05/06/blog/"/>
+    <id>http://www.noddl.me/2018/05/06/blog/</id>
+    <published>2018-05-05T16:27:15.616Z</published>
+    <updated>2018-05-05T16:27:15.616Z</updated>
+    
+    <content type="html"><![CDATA[<p>一开始我所有的站点都部署在Vultr提供的日本VPS下，包括本博客。后来遭不过当初首充的200刀所剩无多，以及遇到奇奇怪怪丢包的网络问题。终于开始了漫漫迁移之路。</p><a id="more"></a><h2 id="第一阶段-自建"><a href="#第一阶段-自建" class="headerlink" title="第一阶段 - 自建"></a>第一阶段 - 自建</h2><p>在VPS下使用了nginx作为web server，无论是在静态资源提供上还是承载力上(其实根本没多少PV)，都表现良好。将静态文件全部推送到Github后，再通知VPS上跑的<a href="http://www.noddl.me/2017/02/21/fish_hook/">fish-hook</a>，及时地把最新内容给拉下来。能够做到热更新，以及一键化操作。</p><p>无奈，遇到了网络问题。于是放弃了这条看似完美的解决方案。😭</p><h2 id="第二阶段-X-page"><a href="#第二阶段-X-page" class="headerlink" title="第二阶段 - X page"></a>第二阶段 - X page</h2><p>作为仓库托管商们，Github、Coding和Bitbucket还提供了Repo pages的优秀服务。每个Repo或Account都能创建属于自己的静态页面，还能享受托管商赠送的二级域名。</p><p><strong>2018年3月19日</strong>，三个服务商提供的服务，我在一晚上全部都试过了，从访问速度、域名绑定、上手难度三个情况进行评估，如下表：</p><table><thead><tr><th>服务商</th><th>访问速度</th><th>域名绑定</th><th>上手难度</th></tr></thead><tbody><tr><td>Github</td><td>慢(大陆部分地区网络无法连接)</td><td>✅</td><td>低</td></tr><tr><td>Coding</td><td>中</td><td>✅</td><td>中</td></tr><tr><td>Bitbucket</td><td>快</td><td>❌</td><td>低</td></tr></tbody></table><ul><li>Github page: 大陆访问较慢经常失败，且部分地区网络压根无法访问。但<strong>提供顶级自定义域名绑定</strong></li><li>Coding page: 访问不流畅，但是不存在失败情况。<strong>提供顶级自定义域名绑定</strong></li><li>Bitbucket page: 海内外访问都极快，但<strong>不提供自定义域名绑定</strong></li></ul><h2 id="其他建议"><a href="#其他建议" class="headerlink" title="其他建议"></a>其他建议</h2><p>除了上述两种就没有别的选择了吗？当然不是，Heroku、Wordpress、Ghost都提供了免费或收费的服务。还有一些国内的服务商，就不一一列举了。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>综上看起来似乎Bitbucket会更好，但是我有一个noddl.me的域名，我可不想浪费它。但是不能绑定自定义域名这一个特点让我无比痛心💔。</p><p>当然了，不排除可能会存在奇技淫巧，让Bitbucket支持自定义域名。隐式跳转是行不通的，因为国内的DNS服务商目前应该都<strong>不支持将域名隐式跳转到未备案的域名</strong>上。</p><p>后来一想，要不直接转战知乎吧？但是一想到知乎的编辑器，又马上放弃了这个念头🤣。</p><p>最终选择了Github，因为我毕竟还是一个热爱填格子的少年。</p><p>最后欢迎访问我的博客: <a href="http://www.noddl.me">http://www.noddl.me</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一开始我所有的站点都部署在Vultr提供的日本VPS下，包括本博客。后来遭不过当初首充的200刀所剩无多，以及遇到奇奇怪怪丢包的网络问题。终于开始了漫漫迁移之路。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="http://www.noddl.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
   </entry>
@@ -423,30 +443,6 @@
     
     
       <category term="随笔" scheme="http://www.noddl.me/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Oracle填坑 - 安装</title>
-    <link href="http://www.noddl.me/2017/04/06/oracle-install/"/>
-    <id>http://www.noddl.me/2017/04/06/oracle-install/</id>
-    <published>2017-04-06T13:53:00.000Z</published>
-    <updated>2018-05-05T16:27:15.619Z</updated>
-    
-    <content type="html"><![CDATA[<p>17年软件学院有一门课程，指定要学生使用oracle数据库作为项目开发使用。那么oracle在安装的时候究竟有哪些坑呢。<br><a id="more"></a></p><p>首先我们要有一个Windows server主机，腾讯云就可以申请到。于是我们根据分配的公网IP地址远程登录上去。登录完成界面是这样的(2012RC) <img src="http://static.noddl.me/c9b8425f0c0ad59410035b85b7cf5fd5034100f4-0c378c8527346e1f3fcee1ead00355e4a6e1255b.png" alt="windows"></p><p>打开普通的IE浏览器，然后接受来自同济大学的小邱神的加速下载助攻: <a href="http://45.55.22.41/" target="_blank" rel="noopener">oracle下载</a>。下载地址随时都可能会失效，流量挺烧的，各位答应我，给他捐款好吗？</p><p>运气好的孩子会获得这两个zip压缩包(oracle1, oracle2)。<img src="http://static.noddl.me/41f1f97a276bd0c580cf206fe852706de2894e5f-d84d8ccb29241282a6cfe3c0238c57b6a3425a39.png" alt="oracle12">它们里面都有一个叫<strong>database</strong>的目录，请分别解压出来，然后合并成一个<strong>database</strong>目录(<em>如果你还没看懂并且很巧地做错了，那么接下的安装你一定不会成功</em>)。</p><p>我们进入<strong>database</strong>目录，可以看见这番光景。<img src="http://static.noddl.me/4f0d21e6a791dcf68fb9c2ba6bf2fa226e045585-725f5b2fa23a317f728a441ec34a0609fb127204.png" alt="database"></p><p>运行setup.exe进入安装程序。有一个小黑框别理它，之后的步骤请静下心平静地跟我一步步走完。<strong>千万别忙着等下一步哦</strong>，先去把计算机名给改了，起码不能有下划线等等一些特殊的字符。教你怎么改计算机名的任务我就委托给google吧。改好了以后，我们进入下一步(<strong>其实要先重启一下才行</strong>)</p><p><img src="http://static.noddl.me/4132ee3f17b75adb76b91c7646203aa37a430262-cd36dd1d3d7ce7c6249b8fe31bfcace735d4805d.png" alt="email"></p><p>点击下一步，然后你就会进入漫长的，可能长达半小时的等待中。<em>这个时候鼠标不要动点西点</em>，否则你会搞砸接下来的所有事情。这个时候你可以泡个茶看个剧，静静等待它进入下一步。</p><p>按照我的印象(因为我写博客的时候实在懒得等30分钟)，应该是配置全局数据库以及添加新账户了。选择第二个添加新用户，账户名与密码(复杂点)自己定。全局数据库名就叫<strong>orcl</strong>不要去改它了，密码最好跟刚刚的账户密码保持一致。然后就可以一直点下一步了，如果卡着了就等着。</p><p>然后oracle安装程序会进行安装前的最后检查，如果你的内存&lt;=1G，它会报一个warning，别理会它，直接点右上角的<strong>全部忽略</strong>然后进入安装步骤。安装这个过程会持续很长时间，<strong>并且会伴随一系列的错误发生(你没有仔细看前面教程的苦果)</strong>，所以你最好盯着。错误了以后就回过头仔细看看有没有哪里没做对，如果安装成功该程序应该就关闭了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;17年软件学院有一门课程，指定要学生使用oracle数据库作为项目开发使用。那么oracle在安装的时候究竟有哪些坑呢。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="http://www.noddl.me/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="oracle" scheme="http://www.noddl.me/tags/oracle/"/>
-    
-      <category term="database" scheme="http://www.noddl.me/tags/database/"/>
     
   </entry>
   
