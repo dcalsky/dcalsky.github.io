@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.noddl.me/"/>
-  <updated>2019-02-12T14:19:23.734Z</updated>
+  <updated>2019-03-04T07:44:37.810Z</updated>
   <id>http://www.noddl.me/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>聊天记录被监控这件事</title>
+    <link href="http://www.noddl.me/2019/03/04/privacy/"/>
+    <id>http://www.noddl.me/2019/03/04/privacy/</id>
+    <published>2019-03-04T07:24:53.920Z</published>
+    <updated>2019-03-04T07:44:37.810Z</updated>
+    
+    <content type="html"><![CDATA[<p>猪圈里的猪，一边吃着糠一边讨论角落里的摄像头。<br><a id="more"></a></p><p>我没什么隐私，是从小就开始的。</p><p>小学没有自己的房间，收到了一些奇奇怪怪的纸条也不知道放哪，最后全部撕碎冲进马桶。初中开始住校生活，随笔要定时上交给老师，于是把日志写到其他本子上，记录着一些平日里奇奇怪怪的想法。可惜每次换教室的时候，所有书本都要带回去，日记本还是被看到了。从此我再没写过日志。</p><p>索性的是，我并没有成为一个自闭的人。我还是积极地与周围的人，与父母交流自己的想法，厌世的、消极的、关于爱情的。</p><p>虽然我的性格没有如此变得糟糕，但我还是变成了一个不在乎隐私的人。我相信，只要我把想法写出来、说出来，就一定会有人知道。我开始不关心隐私这件事，真正的隐私只能藏在心里。</p><p><strong>不想被别人听见就不要说，不想被别人看见就不要做。</strong>一旦我说了，我做了。那我就对我的言行负责，我愿意为自己做的坏事，说过的坏话承担。</p><p>也不知道从什么时候开始，社会上流传着一些都市传说。是关于某些知名聊天软件会监控用户的聊天记录的奇闻异事。最近愈演愈烈，连国外人都插上了一脚。说什么聊天记录存在了公网分布式数据库里，还看见了什么什么。公网数据库这个概念，只要学过点计算机的人都不会这么设计。</p><p>所以隐私可能对我的概念跟很多人不同，我的隐私是我藏在心里想说的想做的，而可能很多人隐私是，已经做了说了的事情却不能见光的那种吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;猪圈里的猪，一边吃着糠一边讨论角落里的摄像头。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="杂谈" scheme="http://www.noddl.me/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>《可爱猫咪》</title>
@@ -396,26 +416,6 @@
     </summary>
     
       <category term="杂谈" scheme="http://www.noddl.me/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>静态博客迁移评估</title>
-    <link href="http://www.noddl.me/2018/05/06/blog/"/>
-    <id>http://www.noddl.me/2018/05/06/blog/</id>
-    <published>2018-05-05T16:27:15.616Z</published>
-    <updated>2018-05-05T16:27:15.616Z</updated>
-    
-    <content type="html"><![CDATA[<p>一开始我所有的站点都部署在Vultr提供的日本VPS下，包括本博客。后来遭不过当初首充的200刀所剩无多，以及遇到奇奇怪怪丢包的网络问题。终于开始了漫漫迁移之路。</p><a id="more"></a><h2 id="第一阶段-自建"><a href="#第一阶段-自建" class="headerlink" title="第一阶段 - 自建"></a>第一阶段 - 自建</h2><p>在VPS下使用了nginx作为web server，无论是在静态资源提供上还是承载力上(其实根本没多少PV)，都表现良好。将静态文件全部推送到Github后，再通知VPS上跑的<a href="http://www.noddl.me/2017/02/21/fish_hook/">fish-hook</a>，及时地把最新内容给拉下来。能够做到热更新，以及一键化操作。</p><p>无奈，遇到了网络问题。于是放弃了这条看似完美的解决方案。😭</p><h2 id="第二阶段-X-page"><a href="#第二阶段-X-page" class="headerlink" title="第二阶段 - X page"></a>第二阶段 - X page</h2><p>作为仓库托管商们，Github、Coding和Bitbucket还提供了Repo pages的优秀服务。每个Repo或Account都能创建属于自己的静态页面，还能享受托管商赠送的二级域名。</p><p><strong>2018年3月19日</strong>，三个服务商提供的服务，我在一晚上全部都试过了，从访问速度、域名绑定、上手难度三个情况进行评估，如下表：</p><table><thead><tr><th>服务商</th><th>访问速度</th><th>域名绑定</th><th>上手难度</th></tr></thead><tbody><tr><td>Github</td><td>慢(大陆部分地区网络无法连接)</td><td>✅</td><td>低</td></tr><tr><td>Coding</td><td>中</td><td>✅</td><td>中</td></tr><tr><td>Bitbucket</td><td>快</td><td>❌</td><td>低</td></tr></tbody></table><ul><li>Github page: 大陆访问较慢经常失败，且部分地区网络压根无法访问。但<strong>提供顶级自定义域名绑定</strong></li><li>Coding page: 访问不流畅，但是不存在失败情况。<strong>提供顶级自定义域名绑定</strong></li><li>Bitbucket page: 海内外访问都极快，但<strong>不提供自定义域名绑定</strong></li></ul><h2 id="其他建议"><a href="#其他建议" class="headerlink" title="其他建议"></a>其他建议</h2><p>除了上述两种就没有别的选择了吗？当然不是，Heroku、Wordpress、Ghost都提供了免费或收费的服务。还有一些国内的服务商，就不一一列举了。</p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>综上看起来似乎Bitbucket会更好，但是我有一个noddl.me的域名，我可不想浪费它。但是不能绑定自定义域名这一个特点让我无比痛心💔。</p><p>当然了，不排除可能会存在奇技淫巧，让Bitbucket支持自定义域名。隐式跳转是行不通的，因为国内的DNS服务商目前应该都<strong>不支持将域名隐式跳转到未备案的域名</strong>上。</p><p>后来一想，要不直接转战知乎吧？但是一想到知乎的编辑器，又马上放弃了这个念头🤣。</p><p>最终选择了Github，因为我毕竟还是一个热爱填格子的少年。</p><p>最后欢迎访问我的博客: <a href="http://www.noddl.me">http://www.noddl.me</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一开始我所有的站点都部署在Vultr提供的日本VPS下，包括本博客。后来遭不过当初首充的200刀所剩无多，以及遇到奇奇怪怪丢包的网络问题。终于开始了漫漫迁移之路。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="技术" scheme="http://www.noddl.me/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
   </entry>
