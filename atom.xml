@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.noddl.me/"/>
-  <updated>2019-03-04T07:44:37.810Z</updated>
+  <updated>2019-03-18T16:27:29.324Z</updated>
   <id>http://www.noddl.me/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Capture Form Post Request Crossing The Page</title>
+    <link href="http://www.noddl.me/2019/03/19/chrome-post-form/"/>
+    <id>http://www.noddl.me/2019/03/19/chrome-post-form/</id>
+    <published>2019-03-18T16:00:05.972Z</published>
+    <updated>2019-03-18T16:27:29.324Z</updated>
+    
+    <content type="html"><![CDATA[<p>Capturing the detail message of the form post request is not easy as we imagine by  Chrome Dev tool, especially in some complex situations.<br><a id="more"></a></p><p>In lots of cases, we just are asked to capture requests sent from the current page, which is so easy that opening the network tool can cope. However, few day ago, I met a more complex problem that I had to capture the request of form post.</p><p>Luckily, I handled the same problem before. So I check the “Preserve Log” box in the top of network tab. It ensure chrome will capture all requests, though they are cross the page ones.</p><p>But it seems not work in the current situation. Because this time, the request will trigger a download event, and then, chrome will close the new tab immediately. That means, I never have enough time to see the detail message of this request though I have captured it. After visiting lots of approaches, I summarize them:</p><h2 id="Use-Preserve-Log"><a href="#Use-Preserve-Log" class="headerlink" title="Use Preserve Log"></a>Use Preserve Log</h2><p>This way is not fit to me.</p><h2 id="Use-Proxy"><a href="#Use-Proxy" class="headerlink" title="Use Proxy"></a>Use Proxy</h2><p>Use proxy tool to visit websites, which make all requests recorded in the proxy logs. We can check out them all easily.</p><p>Approaches above are not suitable for my situation. Because of company rules, the proxy cannot work correctly.</p><p>Finally, I found a tricky solution to solve it: Cut off the connection of network. Once cutting off it, the download event cannot be trigger after submitting the request, and the new page will be preserved in the browser. By this time, we can refresh the new page and see the request captured in the chrome dev tool. </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Capturing the detail message of the form post request is not easy as we imagine by  Chrome Dev tool, especially in some complex situations.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="技术" scheme="http://www.noddl.me/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>聊天记录被监控这件事</title>
@@ -396,26 +416,6 @@
     </summary>
     
       <category term="技术" scheme="http://www.noddl.me/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>307寝室敏捷运动宣言</title>
-    <link href="http://www.noddl.me/2018/05/06/307-sport/"/>
-    <id>http://www.noddl.me/2018/05/06/307-sport/</id>
-    <published>2018-05-05T16:27:15.616Z</published>
-    <updated>2018-05-05T16:27:15.616Z</updated>
-    
-    <content type="html"><![CDATA[<p>介于307寝室的诸位纷纷发现自己在2017年，2016年以至追溯到很久以前，都发现自己在慢慢变胖。从而到了2018年，发现身体开始发酵。终于有一天，我们提出了寝室敏捷运动宣言…</p><a id="more"></a><h2 id="敏捷运动宣言"><a href="#敏捷运动宣言" class="headerlink" title="敏捷运动宣言"></a>敏捷运动宣言</h2><p>我们一直在实践中探寻更好的减肥健身方法，<br>身体力行的同时也帮助室友。由此我们建立了如下价值观：</p><p><strong>相互鞭策</strong> 高于 <strong>自律健身</strong><br><strong>强制罚款</strong> 高于 <strong>友情提醒</strong><br><strong>拍照为证</strong> 高于 <strong>口头描述</strong><br><strong>优先运动</strong> 高于 <strong>减少饮食</strong></p><p>也就是说，尽管右项有其价值，我们更重视左项的价值。</p><h2 id="具体规章"><a href="#具体规章" class="headerlink" title="具体规章"></a>具体规章</h2><p>每天必须进行一项高强度的体育运动，或走路8000步。选择以上的任何一项，都需拍照或截图作为证据，发到Chat group中。</p><p>如果有人在当日尚未达标，而被同行检举揭发，发现确有其事，则被检举人需向其他成员缴纳罚款金。另，未被发现或检举则不算数。</p><h2 id="成效"><a href="#成效" class="headerlink" title="成效"></a>成效</h2><p>自2018年三月份以来，寝室人均每周运动时间长达5小时。体重逐周递减，可见敏捷运动法初见成效。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;介于307寝室的诸位纷纷发现自己在2017年，2016年以至追溯到很久以前，都发现自己在慢慢变胖。从而到了2018年，发现身体开始发酵。终于有一天，我们提出了寝室敏捷运动宣言…&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="杂谈" scheme="http://www.noddl.me/categories/%E6%9D%82%E8%B0%88/"/>
     
     
   </entry>
