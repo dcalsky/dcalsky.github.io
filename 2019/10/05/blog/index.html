@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="周左左个人博客"><meta name="theme-color" content="#795548"><title>静态博客迁移评估 | 白玉为堂金为马</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">静态博客迁移评估</h1><a id="logo" href="/.">白玉为堂金为马</a><p class="description">70%有趣的灵魂</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">静态博客迁移评估</h1><div class="post-meta">Oct 5, 2019<span> | </span><span class="category"><a href="/categories/技术/">技术</a></span></div><div class="post-content"><p>一开始我所有的站点都部署在Vultr提供的日本VPS下，包括本博客。后来遭不过当初首充的200刀所剩无多，以及遇到奇奇怪怪丢包的网络问题。终于开始了漫漫迁移之路。</p>
+<a id="more"></a>
+<h2 id="第一阶段-自建"><a href="#第一阶段-自建" class="headerlink" title="第一阶段 - 自建"></a>第一阶段 - 自建</h2><p>在VPS下使用了nginx作为web server，无论是在静态资源提供上还是承载力上(其实根本没多少PV)，都表现良好。将静态文件全部推送到Github后，再通知VPS上跑的<a href="http://www.noddl.me/2017/02/21/fish_hook/">fish-hook</a>，及时地把最新内容给拉下来。能够做到热更新，以及一键化操作。</p>
+<p>无奈，遇到了网络问题。于是放弃了这条看似完美的解决方案。😭</p>
+<h2 id="第二阶段-X-page"><a href="#第二阶段-X-page" class="headerlink" title="第二阶段 - X page"></a>第二阶段 - X page</h2><p>作为仓库托管商们，Github、Coding和Bitbucket还提供了Repo pages的优秀服务。每个Repo或Account都能创建属于自己的静态页面，还能享受托管商赠送的二级域名。</p>
+<p><strong>2018年3月19日</strong>，三个服务商提供的服务，我在一晚上全部都试过了，从访问速度、域名绑定、上手难度三个情况进行评估，如下表：</p>
+<table>
+<thead>
+<tr>
+<th>服务商</th>
+<th>访问速度</th>
+<th>域名绑定</th>
+<th>上手难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Github</td>
+<td>慢(大陆部分地区网络无法连接)</td>
+<td>✅</td>
+<td>低</td>
+</tr>
+<tr>
+<td>Coding</td>
+<td>中</td>
+<td>✅</td>
+<td>中</td>
+</tr>
+<tr>
+<td>Bitbucket</td>
+<td>快</td>
+<td>❌</td>
+<td>低</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Github page: 大陆访问较慢经常失败，且部分地区网络压根无法访问。但<strong>提供顶级自定义域名绑定</strong></li>
+<li>Coding page: 访问不流畅，但是不存在失败情况。<strong>提供顶级自定义域名绑定</strong></li>
+<li>Bitbucket page: 海内外访问都极快，但<strong>不提供自定义域名绑定</strong></li>
+</ul>
+<h2 id="其他建议"><a href="#其他建议" class="headerlink" title="其他建议"></a>其他建议</h2><p>除了上述两种就没有别的选择了吗？当然不是，Heroku、Wordpress、Ghost都提供了免费或收费的服务。还有一些国内的服务商，就不一一列举了。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>综上看起来似乎Bitbucket会更好，但是我有一个noddl.me的域名，我可不想浪费它。但是不能绑定自定义域名这一个特点让我无比痛心💔。</p>
+<p>当然了，不排除可能会存在奇技淫巧，让Bitbucket支持自定义域名。隐式跳转是行不通的，因为国内的DNS服务商目前应该都<strong>不支持将域名隐式跳转到未备案的域名</strong>上。</p>
+<p>后来一想，要不直接转战知乎吧？但是一想到知乎的编辑器，又马上放弃了这个念头🤣。</p>
+<p>最终选择了Github，因为我毕竟还是一个热爱填格子的少年。</p>
+<p>最后欢迎访问我的博客: <a href="http://www.noddl.me">http://www.noddl.me</a></p>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2019/10/05/blog-migrate/">博客迁移至zeit/now</a><a class="next" href="/2019/10/05/chongqing/">重庆单人行 - 盘山公路</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/摄影/">摄影</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/诗/">诗</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.zhihu.com/people/dcalsky" title="知乎" target="_blank">知乎</a><ul></ul><a href="https://github.com/dcalsky" title="Github" target="_blank">Github</a><ul></ul><a href="mailto:dcalsky@gmail.com" title="电子邮箱" target="_blank">电子邮箱</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">白玉为堂金为马.</a><p>沪ICP备15027189号-2</p></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.1"></script></div></body></html>

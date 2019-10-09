@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="周左左个人博客"><meta name="theme-color" content="#795548"><title>Puppeteer与爬虫 | 白玉为堂金为马</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Puppeteer与爬虫</h1><a id="logo" href="/.">白玉为堂金为马</a><p class="description">70%有趣的灵魂</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Puppeteer与爬虫</h1><div class="post-meta">Oct 5, 2019<span> | </span><span class="category"><a href="/categories/技术/">技术</a></span></div><div class="post-content"><p>从很久以前开始就想着做一个通用爬虫，不写代码也能爬取尽可能多的网站。</p>
+<a id="more"></a>
+<h1 id="需求确定"><a href="#需求确定" class="headerlink" title="需求确定"></a>需求确定</h1><ol>
+<li>支持门户类网站，页面结构不会太复杂，<strong>两个网站之间爬取的内容类型不能完全不同</strong>，也就意味着内容有固定HTML格式。</li>
+<li>不写更多的代码是肯定的，想要爬取新站点，只需要添加URL与其他配置参数即可。</li>
+<li>要能支持无验证码类型网站的登录。</li>
+<li>支持执行JS：现在很多网站部分内容是JS动态生成的，如果不能执行JS脚本那么则获取不到内容。</li>
+</ol>
+<h1 id="难题"><a href="#难题" class="headerlink" title="难题"></a>难题</h1><ol>
+<li>每个网站的HTML结构不同</li>
+<li>部分网站内容由JS动态生成</li>
+<li>虽然内容结构相似，但是仅限于人眼看上去差不多，但其实HTML文本还是有区别的</li>
+<li>部分网站需要登录，意味着很可能需要提供不同的爬虫登录模式</li>
+</ol>
+<h1 id="方案选择"><a href="#方案选择" class="headerlink" title="方案选择"></a>方案选择</h1><h2 id="1-深度学习智能爬虫"><a href="#1-深度学习智能爬虫" class="headerlink" title="1. 深度学习智能爬虫"></a>1. 深度学习智能爬虫</h2><p>通过训练大量的sample让智能爬虫了解网站结构以及哪些是需要的信息。</p>
+<h3 id="1-1-优点"><a href="#1-1-优点" class="headerlink" title="1.1 优点"></a>1.1 优点</h3><p>完美解决难题1与难题3</p>
+<h3 id="1-2-弊端"><a href="#1-2-弊端" class="headerlink" title="1.2 弊端"></a>1.2 弊端</h3><p>JS动态生成怎么办？登录注册怎么办？<br>当然也可以采用别的解决方案去solve以上问题，然后由机器学习来support这部分的功能。但是有没有更简单的方法呢？</p>
+<h2 id="2-传统爬虫-Legacy-Spider"><a href="#2-传统爬虫-Legacy-Spider" class="headerlink" title="2. 传统爬虫 Legacy Spider"></a>2. 传统爬虫 Legacy Spider</h2><h3 id="2-1-优点"><a href="#2-1-优点" class="headerlink" title="2.1 优点"></a>2.1 优点</h3><p>速度快，非常快。自由度很高。</p>
+<h3 id="2-2-弊端"><a href="#2-2-弊端" class="headerlink" title="2.2 弊端"></a>2.2 弊端</h3><p>但是无法解决JS动态生成问题（没有现成的解决方案）。也无法解决难题4，如果一些网站做了简单的反爬虫，那么就要分别去处理。</p>
+<h2 id="3-无头浏览器爬虫-Headless-Browser-Spider"><a href="#3-无头浏览器爬虫-Headless-Browser-Spider" class="headerlink" title="3. 无头浏览器爬虫 Headless Browser Spider"></a>3. 无头浏览器爬虫 Headless Browser Spider</h2><h3 id="3-1-优点"><a href="#3-1-优点" class="headerlink" title="3.1 优点"></a>3.1 优点</h3><p>操控浏览器click, input等行为可以模拟真实用户登录操作，从而解决登录问题；<br>支持加载执行JS，获取由JS动态生成的HTML内容。</p>
+<h3 id="3-2-弊端"><a href="#3-2-弊端" class="headerlink" title="3.2 弊端"></a>3.2 弊端</h3><p>速度慢，而且方案不完全成熟，遇到网络问题从而crash几率高。</p>
+<h1 id="详细方案"><a href="#详细方案" class="headerlink" title="详细方案"></a>详细方案</h1><p>所以最终了headless browser方案。使用google开发的puppeteer，再结合cheerio与正则标准库来解析获取到的HTML文本从而提取固定结构的内容。</p>
+<h2 id="配置项目与可视化管理"><a href="#配置项目与可视化管理" class="headerlink" title="配置项目与可视化管理"></a>配置项目与可视化管理</h2><p><strong>global setting</strong>存储在Redis中，<strong>针对每个网站的Config</strong>存储在MongoDB中。</p>
+<p>每个网站的配置大致包括：</p>
+<ul>
+<li>Username Input CSS Selector: 用户名输入框css selector</li>
+<li>Password Input CSS Selector: 密码输入框css selector</li>
+<li>Submit Button CSS Selector: 登录按钮css selector</li>
+<li>Article Page URL: 文章列表页URL</li>
+<li>Login Page URL: 登录页URL</li>
+<li>Article CSS Selector: 文章列表css selector</li>
+<li>Detail CSS Selector: 进入单篇文章link后，需要爬取的文章内容css selector</li>
+<li>Username: 如果该网站需要登录，提供的用户名</li>
+<li>Password: 如果该网站需要登录，提供的密码</li>
+</ul>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p>只需要提供网站的登录页面URL，人工获取到Username Input CSS Selector以及Password Input CSS Selector以及Submit Button CSS Selector，让浏览器去模拟input与click行为即可。点击完以后选择阻塞并等待网站跳转成功，或者也可以选择主动redirect到内容页面。</p>
+<h2 id="执行JS"><a href="#执行JS" class="headerlink" title="执行JS"></a>执行JS</h2><p>无头浏览器默认加载JS并执行，但是有一点要注意的就是，需要等待到一些HTTP Request得到resp以后再进行下一步操作，毕竟Response里可能会存在我们需要的网站内容。</p>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>根据Article CSS Selector获取到一段杂七杂八的HTML文本。里面包含了每篇文章的title与date。首先要split whole HTML text to separate article HTML text(中文难说)。用cheerio能很方便地解决这个问题。</p>
+<p>随后用我自己写的正则表达式去匹配在单个article HTML text中的title, date与href。其中这步最容易出错，而且debug也很麻烦，我想着之后把它加入global setting作为一个config item。</p>
+<p>获取a标签的href以后，进入到文章内容页。根据Detail CSS Selector获取到文章的内容，问题来了：各个网站以及各篇文章内容之间的HTML text格式也是千奇百怪，如果才能正确提取出所有文本内容呢？</p>
+<p>目前我有两个方案：</p>
+<ol>
+<li>获取内容HTML text进行存储，然后在Display Layer用<strong>Rich Text Component</strong>进行完整还原。 </li>
+<li>使用无头浏览器对该块内容进行截图，并进行存储，再由<strong>Image Component</strong>来进行展示。</li>
+</ol>
+<p>虽然方案1说了完美还原，其实也不是。因为网站包含各自了Style，而我们只有HTML text，所以还原出的文字样式以及排版也可能会受到影响。</p>
+<p>方案2存储的只是图片，并不是文本格式，也算是曲线救国。目前采用的是这种，但是也会几个坑要踩，不一一列出了。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>到这里，通用类爬虫大部分的需求也是实现了。虽然运行效率比较低，而且在Docker上部署也遇到了一些麻烦，但是差不多完成了一个懒癌的愿望。</p>
+</div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2019/10/05/privacy/">聊天记录被监控这件事</a><a class="next" href="/2019/10/05/sakura/">同济樱花 2019</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/摄影/">摄影</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/诗/">诗</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.zhihu.com/people/dcalsky" title="知乎" target="_blank">知乎</a><ul></ul><a href="https://github.com/dcalsky" title="Github" target="_blank">Github</a><ul></ul><a href="mailto:dcalsky@gmail.com" title="电子邮箱" target="_blank">电子邮箱</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">白玉为堂金为马.</a><p>沪ICP备15027189号-2</p></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.1"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.1"></script></div></body></html>
