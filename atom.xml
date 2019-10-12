@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.noddl.me/"/>
-  <updated>2019-10-05T06:44:26.046Z</updated>
+  <updated>2019-10-12T06:44:52.659Z</updated>
   <id>http://www.noddl.me/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>诺基亚短信图片生成</title>
+    <link href="http://www.noddl.me/2019/10/12/zzkia/"/>
+    <id>http://www.noddl.me/2019/10/12/zzkia/</id>
+    <published>2019-10-12T05:55:00.040Z</published>
+    <updated>2019-10-12T06:44:52.659Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近经常会在群聊中看见这样的老式手机短信的表情包，让我十分感兴趣。<br><img src="http://static.noddl.me/15708598290140.jpg" alt></p><p>我也想做一些这样的图片去逗逗损友，于是我搜了一圈，虽然网上有现成的生成器，但是广告比较多。于是还想自己做一个，顺便练练Image Processing。</p><p>一开始本打算在Web Side搞定的，但是发现我对canvas绘图并不熟悉，最后转向了靠谱的Pillow。</p><h2 id="Photoshop处理原始图片"><a href="#Photoshop处理原始图片" class="headerlink" title="Photoshop处理原始图片"></a>Photoshop处理原始图片</h2><p>在网上搜索了一大圈以后，找到了一张比较清晰且干净的原始图片。然后经过PS一番处理，得到一张空白短信图。<br><img src="http://static.noddl.me/final.png" alt="Origin"></p><h2 id="寻找像素风Font"><a href="#寻找像素风Font" class="headerlink" title="寻找像素风Font"></a>寻找像素风Font</h2><p>图片中可以清晰地看见手机屏上小小的晶格，那么肯定要用像素风格的字体来绘制Text。</p><h2 id="Pillow-绘制"><a href="#Pillow-绘制" class="headerlink" title="Pillow 绘制"></a>Pillow 绘制</h2><p>首先打开原始图片:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">im = Image.open(<span class="string">"images/3.png"</span>) <span class="comment"># 打开图片</span></span><br></pre></td></tr></table></figure><p>随后绘制Rotated Text:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="string">'zzkia'</span></span><br><span class="line">width, height = font.getsize(text)</span><br><span class="line">image2 = Image.new(<span class="string">"RGBA"</span>, (width, height))</span><br><span class="line">draw2 = ImageDraw.Draw(image2)</span><br><span class="line">draw2.text((<span class="number">0</span>, <span class="number">0</span>), text=text, font=font, fill=subtitle_color)</span><br><span class="line">image2 = image2.rotate(line_rotate, expand=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">px, py = subtitle_pos</span><br><span class="line">sx, sy = image2.size</span><br><span class="line">im.paste(image2, (px, py, px + sx, py + sy), image2)</span><br></pre></td></tr></table></figure><p>我们发现短信中包含正文以及右上角的字数显示，于是改变字体颜色，再次绘制即可。</p><p>当然绘制正文的时候要注意换行，不能让文字超出屏幕的边界。我采用的方法是使用Python标准款中的<code>textwrap</code>。先限定每行max length，把String类型的text文本转换为List<string>，再加入gap属性增加每行文字之间间隙，最后一行行绘制文本。具体如何实现可以在源代码中查看</string></p><h2 id="Dockerize"><a href="#Dockerize" class="headerlink" title="Dockerize"></a>Dockerize</h2><p>因为既有Python Server Side也有Web Side的Serives，所以最后用Docker compose编排一下进行发布，也能提供一个外部的访问。</p><h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><p>可以访问Github查看源代码: <a href="https://github.com/dcalsky/zzkia" target="_blank" rel="noopener">https://github.com/dcalsky/zzkia</a><br>也可以直接进入: <a href="https://zzkia.noddl.me:8020" target="_blank" rel="noopener">https://zzkia.noddl.me:8020</a></p><h1 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h1><p><img src="http://static.noddl.me/demo.png" alt="demo"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近经常会在群聊中看见这样的老式手机短信的表情包，让我十分感兴趣。&lt;br&gt;&lt;img src=&quot;http://static.noddl.me/15708598290140.jpg&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;我也想做一些这样的图片去逗逗损友，于是我搜了一圈，虽然网上有现成的生成
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://www.noddl.me/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Ukelele伴奏 父亲节排练</title>
@@ -396,26 +420,6 @@
     </summary>
     
       <category term="技术" scheme="http://www.noddl.me/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>《可爱猫咪》</title>
-    <link href="http://www.noddl.me/2019/10/05/cute-mimi/"/>
-    <id>http://www.noddl.me/2019/10/05/cute-mimi/</id>
-    <published>2019-10-05T06:44:26.040Z</published>
-    <updated>2019-10-05T06:44:26.040Z</updated>
-    
-    <content type="html"><![CDATA[<p>她的可爱猫咪和她的我。</p><a id="more"></a><p><img src="http://static.noddl.me/498B2BE66D114BEE318963C629182E56.png" alt></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">朋友圈发了一张照片</span><br><span class="line">我家可爱的猫咪</span><br><span class="line"></span><br><span class="line">姑娘问我</span><br><span class="line">&quot;猫后面的女人是谁&quot;</span><br><span class="line">&quot;是一个喜欢猫的女孩子&quot;</span><br><span class="line">&quot;她究竟是喜欢猫还是猫的主人?&quot;</span><br><span class="line"></span><br><span class="line">她啊</span><br><span class="line">应该是喜欢我的</span><br><span class="line">但是我不知道她究竟是喜欢猫多一些</span><br><span class="line">还是喜欢我多一些</span><br><span class="line"></span><br><span class="line">毕竟</span><br><span class="line">我跟猫都是她养大的</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;她的可爱猫咪和她的我。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="诗" scheme="http://www.noddl.me/categories/%E8%AF%97/"/>
     
     
   </entry>
